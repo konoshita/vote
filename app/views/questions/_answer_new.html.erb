@@ -1,0 +1,32 @@
+
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <h4 class="my-0 font-weight-normal">回答欄</h4>
+  </div>
+  <div class="card-body">
+      <div class="form-row m-4">
+        <%= form_with(model:[@question, @answer], local: true) do |f| %>
+        <div class="form-group">
+        <legend class="col-form-label col-sm-1 pt-0">*必須</legend>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :evaluation, :good %>
+          <%= f.label :evaluation, "現状が良い" %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :evaluation, :avarage %>
+          <%= f.label :evaluation, "中立" %>
+        </div>
+        <div class="form-check form-check-inline">
+          <%= f.radio_button :evaluation, :poor %>
+          <%= f.label :evaluation, "変わってほしい" %>
+        </div>
+        </div>
+        <div class="form-group mt-4">
+        <%= f.label :evaluation, "*意見フォーム" %>
+        <%= f.text_area :body,placeholder: "コメントする" ,class:"form-control" %>
+      </div>
+        <%= f.submit "送信する", class: "btn btn-success m-4" %>
+        <% end %>
+      </div>
+    </div>
+</div>

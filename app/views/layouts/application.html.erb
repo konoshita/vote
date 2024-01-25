@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vote</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <main role="main" style="padding-top: 100px;">
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading mb-3">匿名投票箱</h1>
+      <p class="lead text-muted">完全匿名の投票箱です。質問を作成　→　賛成・中立・反対。コメントを残すことができます。</p>
+      <p class="lead text-muted">質問、投票は削除、編集できません（匿名性維持のため）</p>
+      <p class="lead text-muted">真摯なご回答をお願いいたします</p>
+      <p>
+        <%= link_to "質問を作成する", new_question_path , class:"btn btn-primary my-2" %>
+        <%= link_to "一覧に戻る", questions_path , class:"btn btn-secondary my-2" %>
+      </p>
+    </div>
+  </section>
+    <%= yield %>
+    </main>
+  </body>
+</html>

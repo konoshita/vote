@@ -25,7 +25,9 @@
         <%= f.label :evaluation, "*意見フォーム" %>
         <%= f.text_area :body,placeholder: "コメントする" ,class:"form-control" %>
       </div>
-        <%= f.submit "送信する", class: "btn btn-success d-grid gap-2 col-4 m-4 mx-auto" %>
+        <%= f.submit "送信する", class: "btn btn-success d-grid gap-2 col-4 m-4 mx-auto", data: {
+          turbo_method: :post,
+          turbo_confirm: "この内容で回答を送信しますか？" } %>
         <% end %>
       </div>
     </div>

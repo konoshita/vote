@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @answer = Answer.new
-    @answers = @question.answers.all
+    @answers = @question.answers.order("RANDOM()").all
     if @answers.count < 5
       flash[:warning] = "まだ回答数が足りません"
       redirect_to root_path
@@ -62,7 +62,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
       if @question.save
-        redirect_to question_url(@question), notice: "質問が作成されました"
+        redirect_to root_path, notice: "質問が作成されました"
       else
         render :new, status: :unprocessable_entity 
       end

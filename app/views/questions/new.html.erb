@@ -1,19 +1,12 @@
 <p style="color: green"><%= notice %></p>
-  <div class="album py-5 bg-light">
+<div class="album py-5 bg-light">
     <div class="container">
-    <h1></h1>
-
-      <div class="row">
-        <div class="col-md-4">
-        <div id="questions">
-<%= render "form", question: @question %>
-
-<br>
-
-<div>
-  <%= link_to "Back to questions", questions_path %>
-</div>
-</div>
-</div>
-</div>
+      <h1></h1>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <%= render "form", question: @question %>
+          </div>
+      </div>
+    </div>
+    </div>  
 </div>

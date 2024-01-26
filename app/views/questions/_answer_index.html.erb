@@ -24,7 +24,7 @@
     </div>
     <div class="col">
     <p>回答数：<%= @answers.count %></p>
-    <%= pie_chart @answers.group(:evaluation).count%>
+    <%= pie_chart @answers.group(:evaluation).count ,colors: ["#647081","#ec8900","#191e2c","#394555"]%>
     </div>
   </div>
   </div>

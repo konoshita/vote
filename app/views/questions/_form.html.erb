@@ -1,28 +1,38 @@
-<%= form_with(model: question) do |form| %>
-  <% if question.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
-
-      <ul>
-        <% question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div id="<%= dom_id question %>">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">質問作成</h4>
     </div>
-  <% end %>
+    <div class="card-body">
+      <div class="form-row m-4">
+        <%= form_with(model: question) do |form| %>
+          <% if question.errors.any? %>
+            <div style="color: red">
+             <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+              <ul>
+                <% question.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div>
+            <%= form.label :title, style: "display: block" %>
+            <%= form.text_field :title ,class:"form-control mb-4" %>
+          </div>
+          <div>
+            <%= form.label :description, style: "display: block" %>
+            <%= form.text_area :description ,class:"form-control mb-4" %>
+          </div>
+
+          <div>
+            <%= form.submit "送信する",class: "btn btn-success d-grid gap-2 col-4 m-4 mx-auto", data: {
+              turbo_method: :post,
+              turbo_confirm: "この内容で登録しますか？" } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
+</div>

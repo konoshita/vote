@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
   <div class="album py-5 bg-light">
     <div class="container">
-      <div class="row  row-cols-1 row-cols-md-3 g-4 mb-3">
+      <div class="row  row-cols-1 row-cols-md-3 g-4 mb-3 ">
             <% @questions.each do |question| %>
               <%= render question %>
               <%= link_to "回答する", question_path(question), class:"btn btn-primary my-2" %>

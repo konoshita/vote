@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[ show edit update destroy ]
+  before_action :set_question, only: %i[ show edit ]
 
   # GET /questions or /questions.json
   def index
@@ -19,10 +19,10 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @answer = Answer.new
-    @answers = @question.answers.all
-    unless @answers.count < 5
-      flash[:notice] = "まだ回答数が足りません"
-      redirect_to root_pathh
+    @answers = @question.answers.order("RANDOM()").all
+    if @answers.count < 5
+      flash[:warning] = "まだ回答数が足りません"
+      redirect_to root_path
     end
     @evaluation = Answer.pluck(:evaluation)
     @aggregate = aggregateevaluation(@evaluation)
@@ -62,34 +62,16 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
       if @question.save
-        redirect_to question_url(@question), notice: "Question was successfully created."
+        redirect_to root_path, notice: "質問が作成されました"
       else
         render :new, status: :unprocessable_entity 
       end
   end
 
   # PATCH/PUT /questions/1 or /questions/1.json
-  def update
-    respond_to do |format|
-      if @question.update(question_params)
-        format.html { redirect_to question_url(@question), notice: "Question was successfully updated." }
-        format.json { render :show, status: :ok, location: @question }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /questions/1 or /questions/1.json
-  def destroy
-    @question.destroy
 
-    respond_to do |format|
-      format.html { redirect_to questions_url, notice: "Question was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

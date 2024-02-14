@@ -1,7 +1,7 @@
 databases:
   - name: render_app
-    databaseName: render_app_cl89
-    user: render_app
+    databaseName: render_app_sexu
+    user: render_app_sexu_user
     region: singapore
 
 services:

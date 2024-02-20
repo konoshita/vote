@@ -4,9 +4,11 @@
       <h1></h1>
         <div class="row justify-content-center">
           <div class="col-md-8">
-            <%= render "form", question: @question %>
+            <%= render 'full_vote' ,{ vote: @vote}%>
           </div>
       </div>
     </div>
+      <%= render 'answer_index' %>
     </div>  
 </div>
+<br>

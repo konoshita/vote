@@ -1,17 +1,17 @@
-<div id="<%= dom_id question %>">
+<div id="<%= dom_id vote %>">
   <div class="card mb-4 shadow-sm">
     <div class="card-header">
       <h4 class="my-0 font-weight-normal">質問作成</h4>
     </div>
     <div class="card-body">
       <div class="form-row m-4">
-        <%= form_with(model: question) do |form| %>
-          <% if question.errors.any? %>
+        <%= form_with(model: vote) do |form| %>
+          <% if vote.errors.any? %>
             <div style="color: red">
-             <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+             <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
 
               <ul>
-                <% question.errors.each do |error| %>
+                <% vote.errors.each do |error| %>
                   <li><%= error.full_message %></li>
                 <% end %>
               </ul>

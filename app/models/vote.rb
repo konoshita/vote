@@ -1,4 +1,4 @@
-class Question < ApplicationRecord
+class Vote < ApplicationRecord
   has_many :answers, dependent: :destroy
   validates :title, presence: true,
                       length: {maximum: 50}

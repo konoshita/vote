@@ -1,5 +1,5 @@
 class Answer < ApplicationRecord
-  belongs_to :question
+  belongs_to :vote
   validates :evaluation, presence: true
   validates :body, length: {maximum: 255}
 

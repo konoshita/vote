@@ -11,24 +11,21 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2024_01_25_033204) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "answers", force: :cascade do |t|
-    t.bigint "question_id", null: false
+    t.integer "vote_id", null: false
     t.text "body"
     t.string "evaluation", default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["vote_id"], name: "index_answers_on_vote_id"
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "votes", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "votes"
 end

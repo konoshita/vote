@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vote</title>
+    <title>Other</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -19,8 +19,8 @@
       <p class="lead text-muted">質問、投票は削除、編集できません（匿名性維持のため）</p>
       <p class="lead text-muted">真摯なご回答をお願いいたします</p>
       <p>
-        <%= link_to "質問を作成する", new_question_path , class:"btn btn-primary my-2" %>
-        <%= link_to "一覧に戻る", questions_path , class:"btn btn-secondary my-2" %>
+        <%= link_to "質問を作成する", new_vote_path , class:"btn btn-primary my-2" %>
+        <%= link_to "一覧に戻る", votes_path , class:"btn btn-secondary my-2" %>
       </p>
     </div>
   </section>

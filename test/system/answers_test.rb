@@ -16,7 +16,7 @@ class AnswersTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @answer.body
     fill_in "Evaluation", with: @answer.evaluation
-    fill_in "Question", with: @answer.question_id
+    fill_in "Vote", with: @answer.vote_id
     click_on "Create Answer"
 
     assert_text "Answer was successfully created"
@@ -29,7 +29,7 @@ class AnswersTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @answer.body
     fill_in "Evaluation", with: @answer.evaluation
-    fill_in "Question", with: @answer.question_id
+    fill_in "Vote", with: @answer.vote_id
     click_on "Update Answer"
 
     assert_text "Answer was successfully updated"
